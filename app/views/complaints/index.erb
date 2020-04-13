@@ -8,7 +8,7 @@
 		<% @user.complaints.each do |complaint| %>
 
 			<% if complaint.housemate == hm %>
-				<p><%= complaint.content %></p>
+				<p><a href="/account/complaints/<%= complaint.id %>"><%= complaint.content %></a></p>
 				<form action="/account/complaints/<%= complaint.id %>/edit" method="GET">
 					<input type="submit" value="Edit">
 				</form>

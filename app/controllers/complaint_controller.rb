@@ -35,6 +35,11 @@ class ComplaintController < ApplicationController
 		erb :"complaints/charges"
 	end
 
+	get "/account/complaints/:id" do
+		@complaint = Complaint.find(params[:id])
+		erb :"complaints/show"
+	end
+
 	get "/account/complaints/:id/edit" do
   	# binding.pry
   	@complaint = Complaint.find(params[:id])
