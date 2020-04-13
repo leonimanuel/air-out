@@ -1,1 +1,11 @@
-<h1><%= @complaint.content %></h1>
+<h1>Complaint:</h1>
+
+<p><%= @complaint.housemate.name %>: <%= @complaint.content %></p>
+
+<form action="/account/complaints/<%= @complaint.id %>/edit" method="GET">
+	<input type="submit" value="Edit">
+</form>
+<form action="/account/complaints/<%= @complaint.id %>/delete" method="POST">
+	<input type="hidden" name="_method" value="DELETE">
+	<input type="submit" value="Delete">
+</form>

@@ -1,10 +1,11 @@
 <h1>Welcome to AirOut</h1>
 
-<% if Helpers.is_logged_in?(session) %>
-	<p><a href="/account">My Account</a></p>
-	<p><a href="/logout">Log Out</a></p>
-<% else %>
-	<p><a href="/signup">Sign Up</a></p>
-	<p><a href="/login">Log in</a></p>
-<% end %>
-
+<div class="home_options_wrapper">
+	<% if Helpers.is_logged_in?(session) %>
+		<div class="home_option"><a href="/account">My Account</a></div>
+		<div class="home_option"><a href="/logout">Log Out</a></div>
+	<% else %>
+		<div class="home_option"><a href="/signup">Sign Up</a></div>
+		<div class="home_option"><a href="/login">Log in</a></div>
+	<% end %>
+</div>

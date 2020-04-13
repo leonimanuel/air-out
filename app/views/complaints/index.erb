@@ -9,13 +9,6 @@
 
 			<% if complaint.housemate == hm %>
 				<p><a href="/account/complaints/<%= complaint.id %>"><%= complaint.content %></a></p>
-				<form action="/account/complaints/<%= complaint.id %>/edit" method="GET">
-					<input type="submit" value="Edit">
-				</form>
-				<form action="/account/complaints/<%= complaint.id %>/delete" method="POST">
-					<input type="hidden" name="_method" value="DELETE">
-					<input type="submit" value="Delete">
-				</form>
 			<% end %>
 		<% end %>
 	<% end %>

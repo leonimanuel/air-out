@@ -1,0 +1,22 @@
+.log_on {
+	display: inline-block;
+	background-color: indigo;
+	color: white;
+	/*border: 2px solid red;*/
+	border-radius: 5px;
+	padding: 10px;
+	/*width: 0 auto;*/
+}
+
+.home_options_wrapper {
+	/*display: flex;*/
+	
+	border: 2px solid black;
+	/*margin: 0 500px;*/
+	text-align: center;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
