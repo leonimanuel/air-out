@@ -1,5 +1,9 @@
 <h1>Welcome to AirOut</h1>
 
-<p><a href="/signup">Sign Up</a></p>
-<p><a href="/login">Log in</a></p>
+<% if Helpers.is_logged_in?(session) %>
+	<p><a href="/account">My Account</a></p>
+<% else %>
+	<p><a href="/signup">Sign Up</a></p>
+	<p><a href="/login">Log in</a></p>
+<% end %>
 

@@ -1,0 +1,5 @@
+<h1>Charges:</h1>
+
+<% @user.charges.each.with_index do |charge, index| %>
+	<p><%= "#{index}. #{charge.content}" %></p>
+<% end %>
