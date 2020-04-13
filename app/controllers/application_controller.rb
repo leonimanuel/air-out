@@ -20,18 +20,13 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/signup" do
+   	redirect "/account" if Helpers.is_logged_in?(session)
+
   	@houses = House.all
   	erb :signup
   end
 
   post "/signup" do
-  	# if params[:user_name].empty? || params[:email].empty? || params[:password].empty? 
-  	
-  	# binding.pry
-  	# if params.any?("")
-  	# 	redirect "/signup"
-  	# end
-
   	if (params[:house][:name].empty? && params[:house_name].empty?) || 
   			(params[:user_name].empty? || params[:user_email].empty? || params[:user_password].empty?)
    		redirect "/signup"
@@ -66,6 +61,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/login" do
+  	redirect "/account" if Helpers.is_logged_in?(session)
+
   	erb :login
   end
 

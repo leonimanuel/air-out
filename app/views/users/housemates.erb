@@ -1,0 +1,5 @@
+<h1>Housemates:</h1>
+
+<% @user.housemates.each.with_index(1) do |hm, index| %>
+	<p><%= "#{index}. #{hm.name}" %></p>
+<% end %>
