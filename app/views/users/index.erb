@@ -1,9 +1,10 @@
-<h1>Here's Your Account: <%= @user.name %></h1>
+<h1><%= @user.name %>'s Account</h1>
 
-<p><a href="/account/housemates">Housemates</a></p>
-<p><a href="/account/complaints">Complaints</a></p>
-<p><a href="/account/charges">Charges</a></p>
-
+<div class="account_options_wrapper">
+	<div class="account_option"><a href="/account/housemates">Housemates</a></div>
+	<div class="account_option"><a href="/account/complaints">Complaints</a></div>
+	<div class="account_option"><a href="/account/charges">Charges</a></div>
+</div>
 <br>
 
 <p><a href="/logout">Log Out</a></p>
