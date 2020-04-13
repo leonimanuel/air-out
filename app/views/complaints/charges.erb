@@ -1,5 +1,7 @@
 <h1>Charges:</h1>
 
-<% @user.charges.each.with_index do |charge, index| %>
+<% @user.charges.each.with_index(1) do |charge, index| %>
 	<p><%= "#{index}. #{charge.content}" %></p>
 <% end %>
+
+<button><a href="/account">Back to account</a></button>

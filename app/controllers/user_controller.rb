@@ -1,4 +1,7 @@
 class UserController < ApplicationController 
+  # before do
+  #   redirect '/login' if !Helpers.is_logged_in?(session)
+  # end
 
 	get "/account" do
   	redirect "/login" if !Helpers.is_logged_in?(session)

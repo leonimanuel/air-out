@@ -1,9 +1,12 @@
 <h1>Edit your complaint:</h1>
 <form action="/account/complaints/<%= @complaint.id %>" method="post">
 	<input type="hidden" id="hidden" name="_method" value="PATCH">
-	<p>Content: <%= @complaint.content %></p>
+	<p></p>
+	<p><b><%= @complaint.housemate.name %>: </b><%= @complaint.content %></p>
+	
 	<br>
 
-	<p>New Content: <input type="text" name="content"></p>
+	<p>New Content: <input type="text" name="content" required></p>
 	<input type="submit" value="Submit">
 </form>
+<button><a href="/account/complaints">Cancel</a></button>	

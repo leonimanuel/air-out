@@ -1,20 +1,24 @@
 <h1>Complaints:</h1>
 
-<p><a href="/account/complaints">New Complaint</a></p>
+<p><a href="/account/complaints/new">New Complaint</a></p>
 
-<% @user.housemates.each do |housemate| %>
-	<% if !housemate.charges.empty? %>
-		<h3><%= housemate.name %>:</h3>
-		<% housemate.charges.each do |charge| %>
-			<p><%= charge.content %>
-				<form action="/account/complaints/<%= charge.id %>/edit" method="GET">
+<% @user.housemates.each do |hm| %>
+	<% if @user.complaints.any? { |complaint| complaint.housemate == hm} %>
+		<h2><%= hm.name %></h2>
+		<% @user.complaints.each do |complaint| %>
+
+			<% if complaint.housemate == hm %>
+				<p><%= complaint.content %></p>
+				<form action="/account/complaints/<%= complaint.id %>/edit" method="GET">
 					<input type="submit" value="Edit">
 				</form>
-				<form action="/account/complaints/<%= charge.id %>/delete" method="POST">
+				<form action="/account/complaints/<%= complaint.id %>/delete" method="POST">
 					<input type="hidden" name="_method" value="DELETE">
 					<input type="submit" value="Delete">
 				</form>
-			</p>
+			<% end %>
 		<% end %>
 	<% end %>
 <% end %>
+
+<button><a href="/account">Back to account</a></button>

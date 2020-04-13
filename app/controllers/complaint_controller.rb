@@ -1,20 +1,21 @@
 
 class ComplaintController < ApplicationController 
-  # before do
-  #   redirect '/' unless logged_in?
-  # end
+  before do
+    redirect '/' unless Helpers.is_logged_in?(session)
+  end
 
 	get "/account/complaints" do
-  	redirect "/login" if !Helpers.is_logged_in?(session)
+  	# redirect "/login" if !Helpers.is_logged_in?(session)
 
   	@user = Helpers.current_user(session)
 		erb :"complaints/index"
+		# binding.pry
+
 	end	
 
 	get "/account/complaints/new" do
-  	redirect "/login" if !Helpers.is_logged_in?(session)
+  	# redirect "/login" if !Helpers.is_logged_in?(session)
   	@user = Helpers.current_user(session)
-		
 		erb :"complaints/new"
 	end
 
@@ -28,7 +29,7 @@ class ComplaintController < ApplicationController
 	end
 
 	get "/account/charges" do
-  	redirect "/login" if !Helpers.is_logged_in?(session)
+  	# redirect "/login" if !Helpers.is_logged_in?(session)
   	@user = Helpers.current_user(session)
 
 		erb :"complaints/charges"
@@ -52,8 +53,9 @@ class ComplaintController < ApplicationController
   end
 
 	delete "/account/complaints/:id/delete" do
-  	binding.pry
+  	# binding.pry
   	complaint = Complaint.find(params[:id])
+  	complaint.destroy
 
   	redirect "/account/complaints"
 	end
