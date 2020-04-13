@@ -1,20 +1,26 @@
-class UserController < ApplicationController 
+class ComplaintController < ApplicationController 
 
-	get "/accounts/complaints" do
+	get "/account/complaints" do
   	redirect "/login" if !Helpers.is_logged_in?(session)
 
+  	@user = User.find(Helpers.current_user(session))
 		erb :"complaints/index"
 	end	
 
-	get "/accounts/complaints/new" do
+	get "/account/complaints/new" do
   	redirect "/login" if !Helpers.is_logged_in?(session)
 
+  	@user = Helpers.current_user(session)
 		erb :"complaints/new"
 	end
 
-	post "/accounts/complaints" do
-		complaint = Complaint.create(params[:complaint], user: Helpers.current_user(session))
-		
-		redirect "/accounts/complaints"
+	post "/account/complaints" do
+		content = params[:complaint][:content]
+		housemate = User.find(params[:complaint][:housemate])
+		user = User.find(Helpers.current_user(session))
+
+		complaint = Complaint.create(content: content, user: user, housemate: housemate)
+		# binding.pry
+		redirect "/account/complaints"
 	end
 end

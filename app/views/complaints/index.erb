@@ -1,0 +1,10 @@
+<h1>Complaints:</h1>
+
+<% @user.housemates.each do |housemate| %>
+	<% if !housemate.charges.empty? %>
+		<h3><%= housemate.name %>:</h3>
+		<% housemate.charges.each do |charge| %>
+			<p><%= charge.content %></p>
+		<% end %>
+	<% end %>
+<% end %>
