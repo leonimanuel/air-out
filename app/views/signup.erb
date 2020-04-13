@@ -1,0 +1,22 @@
+<h2>Please select your house below:</h2>
+
+<form action="/signup" method="POST">
+	<% @houses.each do |house| %>
+		<p><input type="radio" id="house_<%=house.id %>" name="house[name]" value="<%= house.name %>"> <%= house.name %></p>
+	<% end %>
+	<!-- <p><input type="radio" name="house[name]" value="">None</p> -->
+	<br>
+	<h3>Don't see your house? Create one here:</h3>
+	<p>House Name: <input type="text" name="house_name"></p>
+
+	<br>
+	<br>
+
+	<h2>Your details: </h2>
+	<p>Name: <input type="text" name="user_name" required></p>
+	<p>Email: <input type="text" name="user_email" required></p>
+	<p>Password: <input type="text" name="user_password" required></p>
+	<input type="submit" value="Submit">
+</form>
+
+<!-- Either choose or create a house name -->
