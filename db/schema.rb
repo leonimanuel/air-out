@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200412215228) do
+ActiveRecord::Schema.define(version: 20200413034643) do
 
   create_table "charges", force: :cascade do |t|
     t.integer "complaint_id"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20200412215228) do
   end
 
   create_table "complaints", force: :cascade do |t|
-    t.string  "name"
+    t.string  "content"
     t.integer "user_id"
     t.integer "housemate_id"
   end

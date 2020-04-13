@@ -1,0 +1,10 @@
+<h1>New Complaint:</h1>
+
+<form action="/complaints" method="POST">
+	<p>Complaint: <input type="text" name="complaint[content]"></p>
+	<br>
+	<p>Against Who?</p>
+	<% @user.housemates.each do |hm| %>
+		<p><input type="radio" name="complaint[housemate]" value="<%= hm.id %>"><%= hm.name %></p>
+	<% end %>
+</form>

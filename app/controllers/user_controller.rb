@@ -14,5 +14,4 @@ class UserController < ApplicationController
 		erb :"users/housemates"
 	end
 	# change name, password, delete account.
-	# get "account/complaints" do
 end
