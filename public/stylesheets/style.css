@@ -25,6 +25,7 @@ a {
 	/*border: 2px solid orange;*/
 	margin: 0 auto;
 	text-align: center;
+	/*color: white;*/
 	/*width: auto;*/
 }
 
@@ -35,4 +36,30 @@ a {
 	border-radius: 5px;
 	padding: 10px;
 	margin: 0 20px;
+}
+
+.log_out {
+	display: inline-block;
+	background-color: orange;
+	color: white;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.complaint_wrapper {
+	margin: 10px 0;
+}
+
+.complaint_list {
+	/*display: inline-block;*/
+	/*background-color: red;*/
+	text-decoration: underline;
+}
+
+.new_complaint {
+	display: inline-block;
+	background-color: lightblue;
+	color: white;
+	border-radius: 5px;
+	padding: 10px;
 }

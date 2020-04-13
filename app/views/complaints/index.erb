@@ -1,14 +1,13 @@
 <h1>Complaints:</h1>
 
-<p><a href="/account/complaints/new">New Complaint</a></p>
+<div class="new_complaint"><a href="/account/complaints/new">New Complaint + </a></div>
 
 <% @user.housemates.each do |hm| %>
 	<% if @user.complaints.any? { |complaint| complaint.housemate == hm} %>
 		<h2><%= hm.name %></h2>
-		<% @user.complaints.each do |complaint| %>
-
+		<% @user.complaints.each do |complaint, index| %>
 			<% if complaint.housemate == hm %>
-				<p><a href="/account/complaints/<%= complaint.id %>"><%= complaint.content %></a></p>
+				<div class="complaint_wrapper">😠 <a class="complaint_list" href="/account/complaints/<%= complaint.id %>"><%= complaint.content %></a></div>
 			<% end %>
 		<% end %>
 	<% end %>

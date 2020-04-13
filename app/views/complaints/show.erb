@@ -1,6 +1,6 @@
 <h1>Complaint:</h1>
 
-<p><%= @complaint.housemate.name %>: <%= @complaint.content %></p>
+<p><b><%= @complaint.housemate.name %>: </b><%= @complaint.content %></p>
 
 <form action="/account/complaints/<%= @complaint.id %>/edit" method="GET">
 	<input type="submit" value="Edit">
