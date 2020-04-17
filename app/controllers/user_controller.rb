@@ -6,6 +6,7 @@ class UserController < ApplicationController
   # end
 
 	get "/account" do
+  	# binding.pry
   	redirect "/login" if !Helpers.is_logged_in?(session)
 
 		@user = User.find(Helpers.current_user(session))

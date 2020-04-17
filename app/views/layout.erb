@@ -15,9 +15,6 @@
     <link rel="stylesheet" href="/stylesheets/style.css" /> 
   </head>
   <body>
-    <div class="user">
-      <p>User: <%= Helpers.current_user(session).name if Helpers.is_logged_in?(session) %></p>
-    </div>
     <% flash.keys.each do |type| %>
       <div data-alert class="flash <%= type %> alert-box radius">
         <%= flash[type] %>

@@ -11,12 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200413180631) do
-
-  create_table "charges", force: :cascade do |t|
-    t.integer "complaint_id"
-    t.integer "user_id"
-  end
+ActiveRecord::Schema.define(version: 20200417183004) do
 
   create_table "complaints", force: :cascade do |t|
     t.string  "content"

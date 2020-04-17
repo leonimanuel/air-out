@@ -1,8 +1,6 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
-  # set :views, Proc.new { File.join(root, "../views/") }
-  # register Sinatra::ActiveRecordExtension
   register Sinatra::Flash
 
   configure do
@@ -10,13 +8,11 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
 
     enable :sessions
-    set :session_secret, "secret"
-    # FIX
+    set :session_secret, "future_lesson"
   end
 
   get "/" do
 
-    # erb :welcome
     erb :index
   end
 
@@ -28,7 +24,8 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/signup" do
-  	if (params[:house][:name].empty? && params[:house_name].empty?) || 
+  	# binding.pry
+    if  params[:house_name].empty? || 
   			(params[:user_name].empty? || params[:user_email].empty? || params[:user_password].empty?)
    		redirect "/signup"
   	end
@@ -38,10 +35,8 @@ class ApplicationController < Sinatra::Base
   		# NOTIFY
   	end
 
-  	if !params[:house][:name].empty?
-  		house = House.find_by(name: params[:house][:name])
-		else
-	  	house = House.create(name: params[:house_name])
+  	if !params[:house_name].empty?
+  		house = House.find_or_create_by(name: params[:house_name])
   	end
   	# binding.pry
   	# current_occupants = house.occupants
