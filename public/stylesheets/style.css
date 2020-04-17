@@ -72,3 +72,14 @@ h1 {
 	border-radius: 5px;
 	padding: 10px;
 }
+
+.footer_content {
+	/*border: 2px solid green;*/
+	display: flex;
+	justify-content: space-between;
+	/*background-color: black;*/
+}
+
+#heart {
+	color: red;
+}
