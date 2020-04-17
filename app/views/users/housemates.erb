@@ -4,4 +4,6 @@
 	<p><%= "#{index}. #{hm.name}" %></p>
 <% end %>
 
-<button><a href="/account">Back to account</a></button>
+<form action="/account" method="GET">
+	<input type="submit" value="Back to Account">
+</form>

@@ -3,6 +3,7 @@ require './config/environment'
 class ApplicationController < Sinatra::Base
   # set :views, Proc.new { File.join(root, "../views/") }
   # register Sinatra::ActiveRecordExtension
+  register Sinatra::Flash
 
   configure do
     set :public_folder, 'public'

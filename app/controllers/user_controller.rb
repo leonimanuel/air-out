@@ -1,3 +1,5 @@
+require "sinatra/flash"
+
 class UserController < ApplicationController 
   # before do
   #   redirect '/login' if !Helpers.is_logged_in?(session)

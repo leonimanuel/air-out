@@ -1,4 +1,3 @@
-
 class ComplaintController < ApplicationController 
   before do
     redirect '/' unless Helpers.is_logged_in?(session)
@@ -37,11 +36,14 @@ class ComplaintController < ApplicationController
 
 	get "/account/complaints/:id" do
 		@complaint = Complaint.find(params[:id])
+		if @complaint.user != Helpers.current_user(session)
+			flash[:notice] = "Can't access that complaint."
+			redirect "account/complaints"
+		end
 		erb :"complaints/show"
 	end
 
 	get "/account/complaints/:id/edit" do
-  	# binding.pry
   	@complaint = Complaint.find(params[:id])
   	redirect "/login" if !Helpers.is_logged_in?(session) ||
   		@complaint.user != Helpers.current_user(session)

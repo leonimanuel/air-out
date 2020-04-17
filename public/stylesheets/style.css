@@ -1,3 +1,7 @@
+.user {
+	display: none;
+}
+
 a {
 	color: black;
 	text-decoration: none;
@@ -8,6 +12,11 @@ a {
 
 	/*border: 2px solid black;*/
 	margin: 0 auto;
+	text-align: center;
+}
+
+h1 {
+	margin-bottom: 20px;
 	text-align: center;
 }
 
