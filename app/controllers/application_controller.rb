@@ -36,7 +36,7 @@ class ApplicationController < Sinatra::Base
   	end
 
   	if !params[:house_name].empty?
-  		house = House.find_or_create_by(name: params[:house_name])
+      house = House.find_or_create_by(name: params[:house_name])
   	end
   	# binding.pry
   	# current_occupants = house.occupants
@@ -76,11 +76,14 @@ class ApplicationController < Sinatra::Base
 
   get "/logout" do
   	if !Helpers.is_logged_in?(session)
-  		# RACK FLASH
-  	end
+  		flash[:notice] = "Please log in"
+      redirect "/login"
+  	else
+      session.clear
+      redirect "/"
+    end
   	
-  	session.clear
-  	redirect "/"
+
   end
 end
 
