@@ -10,11 +10,15 @@ Once opened, execute:
 
 	$ bundle install
 
+This app shines when it has multiple users. To seed the database, run:
+
+	$ rake db:seed
+
 To start the server, execute:
 
 	$ shotgun
 
-Open your browser and navigate to the server address.
+Open your browser and navigate to the server address. You can sign up as a new user, but I suggest logging in as an existing user to get the full experience (email: billy@aol.com, password: greenbeans)
 
 ## Contributing
 
